@@ -1,0 +1,113 @@
+{
+  "SPA": [
+    {
+      "id": 1,
+      "title": "Detox Body Wrap",
+      "description": "A wrap with detoxifying ingredients to cleanse the skin.",
+      "price": 25.99,
+      "imageUrl": "lib/assets/picture/bodywrap.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Body Scrub",
+      "description": "Exfoliation with salt, sugar, or coffee to remove dead skin and soften the body.",
+      "price": 23.49,
+      "imageUrl": "lib/assets/picture/scrub.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Cryotherapy",
+      "description": "Short exposure to extreme cold to reduce inflammation and boost energy.",
+      "price": 55.99,
+      "imageUrl": "lib/assets/picture/cryotherapy.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Steam Room Session",
+      "description": "Heat therapy to detoxify, relax muscles, and improve circulation.",
+      "price": 37.99,
+      "imageUrl": "lib/assets/picture/SteamRoomSession.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Crystal Sound Bath Therapy",
+      "description": "Lie back as quartz singing bowls emit soothing frequencies, releasing stress and balancing energy.",
+      "price": 28.99,
+      "imageUrl": "lib/assets/picture/CrystalSoundBathTherapy.jpg"
+    }
+  ],
+  "MASSAGE": [
+    {
+      "id": 2,
+      "title": "Swedish Massage",
+      "description": "Uses long strokes, kneading, and circular movements to ease muscle tension and improve circulation.",
+      "price": 10.99,
+      "imageUrl": "lib/assets/picture/SwedishMassage.jpg"
+    },
+    {
+      "id": 21,
+      "title": "Deep Tissue Massage",
+      "description": "Focuses on deeper muscle layers and connective tissue to relieve severe knots and stiffness.",
+      "price": 14.99,
+      "imageUrl": "lib/assets/picture/DeepTissueMassage.webp"
+    },
+    {
+      "id": 22,
+      "title": "Hot Stone Massage",
+      "description": "Incorporates heated basalt stones placed on key points to melt away tension and enhance blood flow.",
+      "price": 22.99,
+      "imageUrl": "lib/assets/picture/HotStoneMassage.webp"
+    },
+    {
+      "id": 23,
+      "title": "Aromatherapy Massage",
+      "description": "Custom-blended oils (like lavender or eucalyptus) boost relaxation, mood, and skin health during the massage.",
+      "price": 12.99,
+      "imageUrl": "lib/assets/picture/oilmassage.webp"
+    },
+    {
+      "id": 24,
+      "title": "Sports Massage",
+      "description": "Focuses on preventing/treating injuries, improving flexibility, and enhancing athletic performance through targeted techniques.",
+      "price": 16.99,
+      "imageUrl": "lib/assets/picture/SportsMassage.jpg"
+    }
+  ],
+  "SKIN": [
+    {
+      "id": 3,
+      "title": "HydraFacial",
+      "description": "Combines cleansing, exfoliation, extraction, hydration, and antioxidant protection for instant glow.",
+      "price": 19.99,
+      "imageUrl": "lib/assets/picture/HydraFacial.webp"
+    },
+    {
+      "id": 31,
+      "title": "LED Light Therapy",
+      "description": "Uses colored light (blue for acne, red for wrinkles) to stimulate collagen and kill bacteria without downtime.",
+      "price": 18.59,
+      "imageUrl": "lib/assets/picture/LEDLightTherapy.webp"
+    },
+    {
+      "id": 32,
+      "title": "Microdermabrasion",
+      "description": "A diamond-tip wand removes dead cells, reducing fine lines, acne scars, and sun damage.",
+      "price": 22.49,
+      "imageUrl": "lib/assets/picture/Microdermabrasion.webp"
+    },
+    {
+      "id": 33,
+      "title": "Chemical Peel",
+      "description": "Applies AHA/BHA solutions to peel away dull layers, revealing brighter skin (mild to strong options available).",
+      "price": 15.99,
+      "imageUrl": "lib/assets/picture/ChemicalPeel.webp"
+    },
+    {
+      "id": 34,
+      "title": "Oxygen Facial",
+      "description": "Pressurized oxygen delivers vitamins and hyaluronic acid to plump, hydrate, and revive tired skin.",
+      "price": 10.89,
+      "imageUrl": "lib/assets/picture/OxygenFacial.webp"
+    }
+  ]
+}

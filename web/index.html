@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"> <!-- Изменили black на default -->
+  <meta name="apple-mobile-web-app-title" content="beautysalon">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <title>beautysalon</title>
+  <link rel="manifest" href="manifest.json">
+  
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+  <style>
+    /* Упрощённые стили с белым фоном */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff; /* Белый фон */
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    #flutter-splash {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff; /* Белый фон для сплэш-скрина */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    #flutter-splash img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div id="flutter-splash">
+    <img src="splash/img/light-1x.png" alt="Loading">
+  </div>
+
+  <script src="flutter_bootstrap.js" async></script>
+  
+  <script>
+    window.addEventListener('flutter-first-frame', function() {
+      const splash = document.getElementById('flutter-splash');
+      splash.style.opacity = '0';
+      setTimeout(() => splash.remove(), 500);
+    });
+  </script>
+</body>
+</html>

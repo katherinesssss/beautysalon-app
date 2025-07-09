@@ -1,26 +1,13 @@
 {
-    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
-    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
-    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
-            "name": "beautysalon-main",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "beautysalon-main (profile mode)",
+            "name": "beautysalon-app (SM A515F)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "beautysalon-main (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
+            "deviceId": "R58N92EWCHW", // Используем реальный ID
+            "flutterMode": "debug",
+            "args": ["--no-android-studio-check"]
         }
     ]
 }

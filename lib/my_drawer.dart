@@ -35,19 +35,26 @@ class MyDrawer extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "HOME",
-                        style: TextStyle(
-                          fontFamily: 'Delius-Regular',
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.surface,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context, rootNavigator: true).pushNamed('/home');
+                        },
+                        child: Text(
+                          "HOME",
+                          style: TextStyle(
+                            fontFamily: 'Delius-Regular',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.surface,
+                          ),
                         ),
                       ),
-                      IconButton(onPressed: (){
-                        Navigator.of(context,rootNavigator: true).pushNamed( '/home');
-                      }, icon: Icon(Icons.home),
-                      color: Theme.of(context).colorScheme.surface,
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context, rootNavigator: true).pushNamed('/home');
+                        },
+                        icon: Icon(Icons.home),
+                        color: Theme.of(context).colorScheme.surface,
                       )
                     ],
                   ),
@@ -55,18 +62,26 @@ class MyDrawer extends StatelessWidget {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("SETTINGS",
-                        style: TextStyle(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context, rootNavigator: true).pushNamed('/settings');
+                        },
+                        child: Text(
+                          "SETTINGS",
+                          style: TextStyle(
                             fontFamily: 'Delius-Regular',
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).colorScheme.surface,
+                          ),
                         ),
                       ),
-                      IconButton(onPressed: (){
-                        Navigator.of(context,rootNavigator: true).pushNamed( '/settings');
-                      }, icon: Icon(Icons.settings),
-                      color: Theme.of(context).colorScheme.surface,
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context, rootNavigator: true).pushNamed('/settings');
+                        },
+                        icon: Icon(Icons.settings),
+                        color: Theme.of(context).colorScheme.surface,
                       )
                       ]
                     ),
@@ -74,26 +89,31 @@ class MyDrawer extends StatelessWidget {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("LOG OUT",
-                          style: TextStyle(
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context, rootNavigator: true).pushNamed('/logout');
+                          },
+                          child: Text(
+                            "LOG OUT",
+                            style: TextStyle(
                               fontFamily: 'Delius-Regular',
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Theme.of(context).colorScheme.surface,
+                            ),
                           ),
                         ),
-                        IconButton(onPressed: (){
-                          Navigator.of(context,rootNavigator: true).pushNamed( '/logout');
-                        }, icon: Icon(Icons.logout),
-                        color: Theme.of(context).colorScheme.surface,
+                        IconButton(
+                          onPressed: () {
+                            Navigator.of(context, rootNavigator: true).pushNamed('/logout');
+                          },
+                          icon: Icon(Icons.logout),
+                          color: Theme.of(context).colorScheme.surface,
                         )
                       ]
                   ),
                 ],
               ),
-
-
-
             ),
           ),
           ],

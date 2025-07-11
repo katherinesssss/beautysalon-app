@@ -15,6 +15,7 @@ class _SignInPageState extends State<SignInPage> {
   final passwordController = TextEditingController();
   bool _isLoading = false;
   bool _snackBarShown = false;
+  bool _obscurePassword = true; // Добавлено
 
   @override
   void dispose() {
@@ -149,13 +150,23 @@ class _SignInPageState extends State<SignInPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
                 child: TextField(
                   controller: passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration( // И здесь
+                  obscureText: _obscurePassword, // Изменено
+                  decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                     hintText: 'Password',
-                    suffixIcon: const Icon(Icons.key, color: Colors.black12),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                        color: Colors.black26,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscurePassword = !_obscurePassword;
+                        });
+                      },
+                    ),
                     fillColor: Colors.grey[200],
                     filled: true,
                     focusedBorder: OutlineInputBorder(

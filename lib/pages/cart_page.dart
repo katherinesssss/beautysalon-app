@@ -15,39 +15,6 @@ class _CartPageState extends State<CartPage> {
   final _isItemSelected = false;
   final List<String> routes = ['/home', '/services', '/back'];
 
-  void _showSuccessAnimation(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => Dialog(
-        backgroundColor: Colors.transparent,
-        insetPadding: EdgeInsets.zero,
-        elevation: 0,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'lib/assets/delivery-kick.gif',
-              height: 300,
-              fit: BoxFit.contain,
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.indigo.shade900,
-      
-              ),
-              onPressed: () => Navigator.pop(context),
-              child: const Text(
-                'Awesome!',
-                style: TextStyle(color: Colors.blueGrey),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,17 +22,21 @@ class _CartPageState extends State<CartPage> {
     final isDarkMode = context.watch<ThemeProvider>().isDarkMode;
     final groupedItems = cartProvider.groupedItems;
 
+  
+    final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>? ?? {};
+    final DateTime? selectedDay = args['selectedDay'];
+    final String? selectedTime = args['selectedTime'];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            "CART",
-            style: TextStyle(
-              fontFamily: 'Delius-Regular',
-              fontWeight: FontWeight.bold,
-            ),
+        title: Text(
+          "CART",
+          style: TextStyle(
+            fontFamily: 'Delius-Regular',
+            fontWeight: FontWeight.bold,
           ),
         ),
+        centerTitle: true, 
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -176,40 +147,54 @@ class _CartPageState extends State<CartPage> {
                           context: context,
                           builder: (context) => AlertDialog(
                             title: const Text(
-                              'Confirm delivery',
+                              'Order receipt',
                               style: TextStyle(
                                 color: Colors.blueGrey,
                                 fontSize: 22),
                             ),
                             titlePadding: const EdgeInsets.fromLTRB(26, 20, 26, 0),
-                            content: const Text(
-                              'Are you sure you want delivery?',
-                              style: TextStyle(
-                                color: Colors.blueGrey,
-                                fontSize: 18),
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Your order:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blueGrey,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                ...groupedItems.entries.map((entry) => Text(
+                                  '${entry.key.title} x${entry.value} — \$${(entry.key.price * entry.value).toStringAsFixed(2)}',
+                                  style: const TextStyle(color: Colors.blueGrey),
+                                )),
+                                const Divider(),
+                                Text(
+                                  'Total: \$${cartProvider.totalPrice.toStringAsFixed(2)}',
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blueGrey,
+                                  ),
+                                ),
+                                const SizedBox(height: 12),
+                                if (selectedDay != null && selectedTime != null)
+                                  Text(
+                                    'Date: ${selectedDay.day}.${selectedDay.month}.${selectedDay.year}\nTime: $selectedTime',
+                                    style: const TextStyle(color: Colors.blueGrey),
+                                  ),
+                                if (selectedDay == null || selectedTime == null)
+                                  const Text(
+                                    'Date and time not selected!',
+                                    style: TextStyle(color: Colors.redAccent),
+                                  ),
+                              ],
                             ),
                             actions: [
                               TextButton(
                                 onPressed: () => Navigator.pop(context),
                                 child: const Text(
-                                  'Cancel',
-                                  style: TextStyle(color: Colors.blueGrey),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                  cartProvider.clearCart();
-                                  _showSuccessAnimation(context);
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text('Delivery is created!',style: TextStyle(color: Colors.blueGrey),),
-                                      duration: Duration(seconds: 2),
-                                    ),
-                                  );
-                                },
-                                child: const Text(
-                                  'Confirm',
+                                  'Close',
                                   style: TextStyle(color: Colors.blueGrey),
                                 ),
                               ),

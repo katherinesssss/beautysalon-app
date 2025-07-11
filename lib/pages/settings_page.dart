@@ -20,15 +20,15 @@ class _SettingsPageState extends State<SettingsPage> {
     final isDarkMode = context.watch<ThemeProvider>().isDarkMode;
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text("SETTINGS",
-            style: TextStyle(
-              fontFamily: 'Delius-Regular',
-              fontWeight: FontWeight.bold,
-            ),
+        title: Text(
+          "SETTINGS",
+          style: TextStyle(
+            fontFamily: 'Delius-Regular',
+            fontWeight: FontWeight.bold,
           ),
         ),
-       backgroundColor: Theme.of(context).colorScheme.primary,
+        centerTitle: true, 
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex ?? 0,
@@ -82,7 +82,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   //dark mode
-                  Text("Dark Mode",
+                  Text("DARK MODE",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.onPrimary,

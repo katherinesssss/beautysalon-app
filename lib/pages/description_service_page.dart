@@ -86,7 +86,7 @@ class _DescriptionServicePageState extends State<DescriptionServicePage> {
                             color: Theme.of(context).colorScheme.surface,
                           ),
                           overflow: TextOverflow.ellipsis,
-                          maxLines: 10, // Ограничение количества строк
+                          maxLines: 10, 
                         ),
                       ),
                       const SizedBox(height: 180),

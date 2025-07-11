@@ -51,9 +51,9 @@ class _ServicePageState extends State<ServicePage> {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: Column( // Добавляем Column как родительский виджет
+        child: Column( 
           children: [
-            Expanded( // Теперь Expanded используется правильно
+            Expanded( 
               child: Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: MyTabBar(),

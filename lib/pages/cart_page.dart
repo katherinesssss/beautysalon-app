@@ -1,5 +1,6 @@
 import 'package:beautysalon/provider/cart_provider.dart';
 import 'package:beautysalon/provider/theme_provider.dart';
+import 'package:beautysalon/provider/booking_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,12 +21,11 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     final cartProvider = context.watch<CartProvider>();
     final isDarkMode = context.watch<ThemeProvider>().isDarkMode;
+    final bookingProvider = context.watch<BookingProvider>();
     final groupedItems = cartProvider.groupedItems;
 
-  
-    final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>? ?? {};
-    final DateTime? selectedDay = args['selectedDay'];
-    final String? selectedTime = args['selectedTime'];
+    final selectedDay = bookingProvider.selectedDay;
+    final selectedTime = bookingProvider.selectedTime;
 
     return Scaffold(
       appBar: AppBar(

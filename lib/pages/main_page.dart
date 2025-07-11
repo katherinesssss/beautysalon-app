@@ -1,5 +1,6 @@
 import 'package:beautysalon/my_drawer.dart';
 import 'package:beautysalon/provider/theme_provider.dart';
+import 'package:beautysalon/provider/booking_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -39,6 +40,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = context.watch<ThemeProvider>().isDarkMode;
+    final bookingProvider = context.read<BookingProvider>();
 
     return Scaffold(
       drawer: MyDrawer(),
@@ -157,6 +159,7 @@ class _MainPageState extends State<MainPage> {
                               _selectedDay = selectedDay;
                               _focusedDay = focusedDay;
                             });
+                            bookingProvider.setDay(selectedDay);
                           },
                           calendarStyle: CalendarStyle(
                             todayDecoration: BoxDecoration(
@@ -245,6 +248,7 @@ class _MainPageState extends State<MainPage> {
                               setState(() {
                                 _selectedTime = time;
                               });
+                              bookingProvider.setTime(time);
                             },
                             selectedColor: Colors.blueAccent,
                             backgroundColor: Colors.blue[50],

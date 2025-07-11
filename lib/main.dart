@@ -9,6 +9,7 @@ import 'package:beautysalon/pages/sign_in_page.dart';
 import 'package:beautysalon/pages/sign_up_page.dart';
 import 'package:beautysalon/provider/cart_provider.dart';
 import 'package:beautysalon/provider/theme_provider.dart';
+import 'package:beautysalon/provider/booking_provider.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,17 @@ void main() async {
     debugPrint('Test auth error: $e');
   }
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => BookingProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -46,30 +57,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => ThemeProvider()),
-        ChangeNotifierProvider(create: (context) => CartProvider()),
-        ChangeNotifierProvider(create: (context) => UserProvider()),
-      ],
-      child: Consumer<ThemeProvider>(
-        builder: (context, themeProvider, child) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            routes: {
-              '/signup': (context) => const SignUpPage(),
-              '/home': (context) => const MainPage(),
-              '/signin': (context) => const SignInPage(),
-              '/settings': (context) => const SettingsPage(),
-              '/services': (context) => const ServicePage(),
-              '/cart': (context) => const CartPage(),
-              '/logout':(context)=> const SignInPage(),
-            },
-            theme: themeProvider.themeMode,
-            home: const SplashScreen(), // Лучше использовать либо initialRoute, либо home
-          );
-        },
-      ),
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          routes: {
+            '/signup': (context) => const SignUpPage(),
+            '/home': (context) => const MainPage(),
+            '/signin': (context) => const SignInPage(),
+            '/settings': (context) => const SettingsPage(),
+            '/services': (context) => const ServicePage(),
+            '/cart': (context) => const CartPage(),
+            '/logout':(context)=> const SignInPage(),
+          },
+          theme: themeProvider.themeMode,
+          home: const SplashScreen(), // Лучше использовать либо initialRoute, либо home
+        );
+      },
     );
   }
 }

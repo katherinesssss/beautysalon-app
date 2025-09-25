@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "beautysalon-app (SM A515F)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "R58N92EWCHW", // Используем реальный ID
+            "flutterMode": "debug",
+            "args": ["--no-android-studio-check"]
+        }
+    ]
+}
